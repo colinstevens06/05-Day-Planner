@@ -13,6 +13,7 @@ function populateCalendar() {
       var notesCol = $("<div>")
       var notesTextArea = $("<textarea>")
       var saveNotesCol = $("<div>")
+      var saveButton = $("<button>")
       var saveIcon = $("<i>")
 
       // giving classes and content to the time column
@@ -34,9 +35,20 @@ function populateCalendar() {
       saveNotesCol.attr("class", "col-md-1 save-daily-notes")
       saveNotesCol.attr("id", "save-daily-notes")
 
-      //adding save icon to div
+      //adding save icon to button
       saveIcon.attr("class", "fa fa-save")
-      saveNotesCol.append(saveIcon)
+
+      // button styling and attributes
+      saveButton.attr("class", "btn")
+      saveButton.attr("data-notes", timesArray)
+      saveButton.attr("id", timesArray[i] + '-button')
+
+      // add icon to button
+      saveButton.append(saveIcon)
+
+      
+      // adding button to div
+      saveNotesCol.append(saveButton)
 
       // adding classes to the row
       rowDiv.attr("class", "row row-planner")
@@ -50,5 +62,7 @@ function populateCalendar() {
       mainContainerDiv.append(rowDiv)
    }
 }
+
+
 
 populateCalendar()
