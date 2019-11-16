@@ -1,0 +1,22 @@
+html, body {
+   margin: 0px;
+   height: 100%;
+}
+
+
+
+.row-planner {
+   border: 1px solid #001100;
+   margin-bottom: 15px;
+   padding: 8px 10px;
+}
+
+
+
+
+
+
+.fa-save {
+   font-size: 48px;
+   color: maroon;
+}
