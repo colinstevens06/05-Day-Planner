@@ -4,10 +4,14 @@ var mainContainerDiv = $("#main-container")
 
 var timesArray = ["8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm"]
 
+var dailyNotesObject = [];
+
+populateCalendar()
+
 function populateCalendar() {
    for (var i = 0; i < timesArray.length; i++) {
       // creating the elements for each row in the planner
-      
+
       var rowDiv = $("<div>")
       var timeCol = $("<div>")
       var notesCol = $("<div>")
@@ -22,7 +26,7 @@ function populateCalendar() {
 
       // setting up the notes section
       notesCol.attr("class", "col-md-10 daily-notes form-group")
-      
+
       // setting up text area with bootsrap form class, data-notes so that this will connect to the save button and the local storage, and an id because I know each one will need an individual id at some point
       notesTextArea.attr("class", "form-control")
       notesTextArea.attr("data-notes", timesArray[i])
@@ -39,14 +43,14 @@ function populateCalendar() {
       saveIcon.attr("class", "fa fa-save")
 
       // button styling and attributes
-      saveButton.attr("class", "btn")
+      saveButton.attr("class", "btn btn-save")
       saveButton.attr("data-notes", timesArray)
       saveButton.attr("id", timesArray[i] + '-button')
 
       // add icon to button
       saveButton.append(saveIcon)
 
-      
+
       // adding button to div
       saveNotesCol.append(saveButton)
 
@@ -63,6 +67,33 @@ function populateCalendar() {
    }
 }
 
+// initialize the 
 
+// function to store data locally
+function dailyNotesData() {
+   var storedDailyNotesArray = JSON.parse(localStorage.getItem("dailyNotesObject"))
+   var textAreaID = "#" + timesArray[i] + "-text"
 
-populateCalendar()
+   // if notes were retrieved from local storage, update the array to it
+   if (storedDailyNotesArray !== null) {
+      dailyNotesObject = storedDailyNotesArray;
+   }
+
+   // populate the appropriate text object with the saved data
+   for (var i = 0; i < dailyNotesObject.length; i++) {
+      $(textAreaID).text(dailyNotesObject[i])
+   }
+}
+
+function storedDailyNotes() {
+   localStorage.setItem("dailyNotesObject", JSON.stringify(dailyNotesObject))
+}
+
+function saveNotesClick() {
+   event.preventDefault()
+
+   
+
+}
+
+$(".btn-save").on("click", saveNotesClick)
