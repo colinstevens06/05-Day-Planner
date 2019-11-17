@@ -16,9 +16,45 @@ html, body {
    cursor: pointer;
 }
 
-
-
 .fa-save {
    font-size: 48px;
    color: maroon;
 }
+
+.past {
+   background-color: #ffcccc;
+}
+
+.present {
+   background-color: #ddffcc;
+
+}
+
+.future {
+   background-color: #ccf5ff;
+}
+
+@media screen and (max-width: 992px) {
+
+   .save-daily-notes {
+      text-align: center;
+   }
+
+   .time-of-day {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+   }
+
+   .planner-header {
+      font-size: 4.5rem;
+   }
+
+}
+
+@media screen and (max-width: 576px) {
+   .planner-header {
+      font-size: 3.5rem;
+   }
+}
+
