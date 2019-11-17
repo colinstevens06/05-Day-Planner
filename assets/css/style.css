@@ -16,8 +16,6 @@ html, body {
    cursor: pointer;
 }
 
-
-
 .fa-save {
    font-size: 48px;
    color: maroon;
@@ -48,5 +46,14 @@ html, body {
       margin-bottom: 10px;
    }
 
+   .planner-header {
+      font-size: 4.5rem;
+   }
 
+}
+
+@media screen and (max-width: 576px) {
+   .planner-header {
+      font-size: 3.5rem;
+   }
 }
