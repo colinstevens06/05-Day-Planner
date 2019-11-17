@@ -1,12 +1,21 @@
 $(document).ready(function () {
-
+   
    // the first thing I need to do is dynamically create all my rows. each row needs a 1-column field to hold the time of day. it needs to increase one hour each time - i'm going to try what i did w/ the last homework where there's a variable that increases at the end of the function... but maybe I need a for loop to create everything? I'm thinking I need a for loop to create everything. I can't do that with the iterator idea because that was dependent on the user clicking the correct answer for the onclick action to take. okay, so let's create the for loop to start
-
+   
+   
    var mainContainerDiv = $("#main-container")
+   var todaysDateDiv = $("#todays-date")
+   var currentTimeDiv = $("#current-time")
+
+   todaysDateDiv.text(moment().format('MMMM Do, YYYY'))
+   currentTimeDiv
+
 
    var timesArray = ["8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm"]
    var timesArrayIDs = ["8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p"]
    // var dailyNotesObject = { "8a": "xxx", "9a": "", "10a": "", "11a": "", "12p": "", "1p": "", "2p": "", "3p": "", "4p": "", "5p": "", "6p": "", "7p": "" }
+
+
 
    var firstNotesObject = [];
    var secondNotesObject = [];
@@ -20,41 +29,6 @@ $(document).ready(function () {
    var tenthNotesObject = [];
    var eleventhNotesObject = [];
    var twelthNotesObject = [];
-
-   var btn1 = $("#8a-button")
-   var btn2 = $("#9a-button")
-   var btn3 = $("#10a-button")
-   var btn4 = $("#11a-button")
-   var btn5 = $("#12p-button")
-   var btn6 = $("#1p-button")
-   var btn7 = $("#2p-button")
-   var btn8 = $("#3p-button")
-   var btn9 = $("#4p-button")
-   var btn10 = $("#5p-button")
-   var btn11 = $("#6p-button")
-   var btn12 = $("#7p-button")
-
-   var textAreaOne = $("#8a-text")
-   console.log(textAreaOne)
-   var textAreaTwo = $("#9a-text")
-   var textAreaThree = $("#10a-text")
-   var textAreaFour = $("#11a-text")
-   var textAreaFive = $("#12p-text")
-   var textAreaSix = $("#1p-text")
-   var textAreaSeven = $("#2p-text")
-   var textAreaEight = $("#3p-text")
-   var textAreaNine = $("#4p-text")
-   var textAreaTen = $("#5p-text")
-   var textAreaEleven = $("#6p-text")
-   var textAreaTwelve = $("#7p-text")
-
-   // localStorage.setItem('dailyNotesObject', JSON.stringify(dailyNotesObject));
-   // var retrieveDailyNotes = JSON.parse(localStorage.getItem('dailyNotesObject'))
-   // console.log(retrieveDailyNotes)
-
-   dailyNotes();
-
-   populateCalendar()
 
    function populateCalendar() {
       for (var i = 0; i < timesArray.length; i++) {
@@ -75,8 +49,6 @@ $(document).ready(function () {
 
          // setting up the notes section
          notesCol.attr("class", "col-md-10 daily-notes form-group")
-
-
 
          // setting up text area with bootsrap form class, data-notes so that this will connect to the save button and the local storage, and an id because I know each one will need an individual id at some point
          notesTextArea.attr("class", "form-control")
@@ -182,23 +154,24 @@ $(document).ready(function () {
          twelthNotesObject = twelthNotes;
       }
 
-      textAreaOne.text(firstNotesObject);
-      textAreaTwo.text(secondNotesObject)
-      textAreaThree.text(thirdNotesObject)
-      textAreaFour.text(fourthNotesObject)
-      textAreaFive.text(fifthNotesObject)
-      textAreaSix.text(sixthNotesObject)
-      textAreaSeven.text(seventhNotesObject)
-      textAreaEight.text(eighthNotesObject)
-      textAreaNine.text(ninthNotesObject)
-      textAreaTen.text(tenthNotesObject)
-      textAreaEleven.text(eleventhNotesObject)
-      textAreaTwelve.text(twelthNotesObject)
+      // setting the text for each object to populate on page load if there is any text saved
+      $("#8a-text").text(firstNotesObject);
+      $("#9a-text").text(secondNotesObject)
+      $("#10a-text").text(thirdNotesObject)
+      $("#11a-text").text(fourthNotesObject)
+      $("#12p-text").text(fifthNotesObject)
+      $("#1p-text").text(sixthNotesObject)
+      $("#2p-text").text(seventhNotesObject)
+      $("#3p-text").text(eighthNotesObject)
+      $("#4p-text").text(ninthNotesObject)
+      $("#5p-text").text(tenthNotesObject)
+      $("#6p-text").text(eleventhNotesObject)
+      $("#7p-text").text(twelthNotesObject)
 
    }
 
    function storedDailyNotes() {
-      // stringify and set 'firstNotesObject' key in localStare to array
+      // stringify and set 'each object' key in localStare to array
       localStorage.setItem("firstNotesObject", JSON.stringify(firstNotesObject));
       localStorage.setItem("secondNotesObject", JSON.stringify(secondNotesObject));
       localStorage.setItem("thirdNotesObject", JSON.stringify(thirdNotesObject));
@@ -213,12 +186,16 @@ $(document).ready(function () {
       localStorage.setItem("twelthNotesObject", JSON.stringify(twelthNotesObject));
 
    }
-console.group(btn1);
-   btn1.on("click", function (event) {
+      
+   populateCalendar()
+   
+   dailyNotes();
+
+   // I created an event listener for each individual button. I don't think this was the most efficient method, but it is the method I could use to get this work
+
+   $("#8a-button").on("click", function (event) {
       event.preventDefault();
-      console.log("hello!")
-      var notes = textAreaOne[0].value;
-      console.log(textAreaOne[0].valuea)
+      var notes = $("#8a-text")[0].value;
 
       if (notes === "") {
          return;
@@ -231,224 +208,189 @@ console.group(btn1);
       dailyNotes();
 
    })
+   
+   $("#9a-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#9a-text")[0].value;
 
-   // btn2.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      secondNotesObject = [];
+      secondNotesObject.push(notes)
 
-   //       secondNotesObject = [];
-   //       secondNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   
+   $("#10a-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#10a-text")[0].value;
 
-   // btn3.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      thirdNotesObject = [];
+      thirdNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   $("#11a-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#11a-text")[0].value;
 
-   // btn4.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      fourthNotesObject = [];
+      fourthNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   
+   $("#12p-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#12p-text")[0].value;
 
-   // btn5.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      fifthNotesObject = [];
+      fifthNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   $("#1p-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#1p-text")[0].value;
 
-   // btn6.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      sixthNotesObject = [];
+      sixthNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   
+   $("#2p-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#2p-text")[0].value;
 
-   // btn7.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      seventhNotesObject = [];
+      seventhNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   $("#3p-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#3p-text")[0].value;
 
-   // btn8.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      eighthNotesObject = [];
+      eighthNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   
+   $("#4p-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#4p-text")[0].value;
 
-   // btn9.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      ninthNotesObject = [];
+      ninthNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   $("#5p-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#5p-text")[0].value;
 
-   // btn10.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      tenthNotesObject = [];
+      tenthNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   
+   $("#6p-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#6p-text")[0].value;
 
-   // btn11.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      eleventhNotesObject = [];
+      eleventhNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
+   $("#7p-button").on("click", function (event) {
+      event.preventDefault();
+      var notes = $("#7p-text")[0].value;
 
-   // btn12.on("click", function (event) {
-   //       event.preventDefault();
-   //       var notes = textAreaOne[0].value;
+      if (notes === "") {
+         return;
+      }
 
-   //       if (notes === "") {
-   //          return;
-   //       }
+      twelthNotesObject = [];
+      twelthNotesObject.push(notes)
 
-   //       firstNotesObject = [];
-   //       firstNotesObject.push(notes)
+      storedDailyNotes();
+      dailyNotes();
 
-   //       storedDailyNotes();
-   //       dailyNotes();
+   })
 
-   //    })
-
-
-
-
-
-
-   // // initialize the 
-
-   // // function to store data locally
-   // function dailyNotesData() {
-   //    var storedDailyNotesArray = JSON.parse(localStorage.getItem("dailyNotesObject"))
-
-   //    // if notes were retrieved from local storage, update the array to it
-   //    if (storedDailyNotesArray !== null) {
-   //       dailyNotesObject = storedDailyNotesArray;
-   //    }
-
-   //    // populate the appropriate text object with the saved data
-   //    for (var i = 0; i < dailyNotesObject.length; i++) {
-   //       var textAreaID = "#" + timesArray[i] + "-text"
-   //       $(textAreaID).text(dailyNotesObject[i])
-   //       console.log(dailyNotesObject[i])
-   //    }
-   // }
-
-   // dailyNotesData();
-
-   // // this funtion sets the key for the dailyNotesObject and sets the object to add
-   // function storedDailyNotes() {
-   //    localStorage.setItem("dailyNotesObject", JSON.stringify(dailyNotesObject))
-   // }
-
-   // function saveNotesClick() {
-   //    event.preventDefault()
-   //    var notes = $(this).attr("data-notes")
-
-
-   // }
-
-   // $(".btn-save").on("click", saveNotesClick)
-
-
+   
    /* FROM CHAT WITH DONALD
    
    1) add event listener to $(this), connect to data points
