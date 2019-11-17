@@ -1,8 +1,5 @@
 $(document).ready(function () {
 
-   // the first thing I need to do is dynamically create all my rows. each row needs a 1-column field to hold the time of day. it needs to increase one hour each time - i'm going to try what i did w/ the last homework where there's a variable that increases at the end of the function... but maybe I need a for loop to create everything? I'm thinking I need a for loop to create everything. I can't do that with the iterator idea because that was dependent on the user clicking the correct answer for the onclick action to take. okay, so let's create the for loop to start
-
-
    var mainContainerDiv = $("#main-container")
    var todaysDateDiv = $("#todays-date")
    var currentTimeDiv = $("#current-time")
@@ -23,7 +20,6 @@ $(document).ready(function () {
    var timesArray = ["8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm"]
    var timesArrayIDs = ["8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p"]
    var militaryTimesArray = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-   // var dailyNotesObject = { "8a": "xxx", "9a": "", "10a": "", "11a": "", "12p": "", "1p": "", "2p": "", "3p": "", "4p": "", "5p": "", "6p": "", "7p": "" }
 
    // empty objects to store data in localstorage
    var firstNotesObject = [];
@@ -186,11 +182,11 @@ $(document).ready(function () {
          var saveIcon = $("<i>")
 
          // giving classes and content to the time column
-         timeCol.attr("class", "colr-lg-1 col-md-1 time-of-day")
+         timeCol.attr("class", "col-sm-1 col-md-1 time-of-day")
          timeCol.text(timesArray[i])
 
          // setting up the notes section
-         notesCol.attr("class", "col-lg-10 col-md-9 daily-notes form-group")
+         notesCol.attr("class", "col-sm-9 col-md-10 daily-notes form-group")
 
          // setting up text area with bootsrap form class, data-notes so that this will connect to the save button and the local storage, and an id because I know each one will need an individual id at some point
          notesTextArea.attr("class", "form-control")
@@ -202,7 +198,7 @@ $(document).ready(function () {
          notesCol.append(form)
 
          // save column
-         saveNotesCol.attr("class", "col-lg-1 col-md-2 save-daily-notes")
+         saveNotesCol.attr("class", "col-sm-2 col-md-1 save-daily-notes")
          // saveNotesCol.attr("id", "save-daily-notes")
 
          //adding save icon to button
@@ -372,7 +368,6 @@ $(document).ready(function () {
 
    })
 
-
    $("#10a-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#10a-text")[0].value;
@@ -404,7 +399,6 @@ $(document).ready(function () {
       dailyNotes();
 
    })
-
 
    $("#12p-button").on("click", function (event) {
       event.preventDefault();
@@ -438,7 +432,6 @@ $(document).ready(function () {
 
    })
 
-
    $("#2p-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#2p-text")[0].value;
@@ -471,7 +464,6 @@ $(document).ready(function () {
 
    })
 
-
    $("#4p-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#4p-text")[0].value;
@@ -503,7 +495,6 @@ $(document).ready(function () {
       dailyNotes();
 
    })
-
 
    $("#6p-button").on("click", function (event) {
       event.preventDefault();

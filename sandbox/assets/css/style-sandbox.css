@@ -3,7 +3,9 @@ html, body {
    height: 100%;
 }
 
-
+.form-group {
+   margin-bottom: 0px;
+}
 
 .row-planner {
    border: 1px solid #001100;
@@ -56,5 +58,12 @@ html, body {
    .planner-header {
       font-size: 3.5rem;
    }
+}
+
+
+@media (min-width: 576px) {
+   .col-sm-1 {}
+   .col-sm-2 {}
+   .col-sm-9 {}
 }
 

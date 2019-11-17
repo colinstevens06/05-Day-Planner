@@ -1,21 +1,15 @@
 $(document).ready(function () {
 
-   // the first thing I need to do is dynamically create all my rows. each row needs a 1-column field to hold the time of day. it needs to increase one hour each time - i'm going to try what i did w/ the last homework where there's a variable that increases at the end of the function... but maybe I need a for loop to create everything? I'm thinking I need a for loop to create everything. I can't do that with the iterator idea because that was dependent on the user clicking the correct answer for the onclick action to take. okay, so let's create the for loop to start
-
-
    var mainContainerDiv = $("#main-container")
    var todaysDateDiv = $("#todays-date")
    var currentTimeDiv = $("#current-time")
 
+   // creating variables for the current date/time/etc
    var currentDate = moment().format('MMMM Do, YYYY')
    var currentTime = moment().format('LT')
    var currentMilitaryTime = moment().format('HH')
    currentMilitaryTime = Math.floor(currentMilitaryTime)
    // var timeRoundDown = Math.floor(parseInt(currentTime));
-
-   // console.log(timeRoundDown)
-
-   console.log(moment())
 
    todaysDateDiv.text(currentDate)
    currentTimeDiv.text(currentTime)
@@ -372,7 +366,6 @@ $(document).ready(function () {
 
    })
 
-
    $("#10a-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#10a-text")[0].value;
@@ -404,7 +397,6 @@ $(document).ready(function () {
       dailyNotes();
 
    })
-
 
    $("#12p-button").on("click", function (event) {
       event.preventDefault();
@@ -438,7 +430,6 @@ $(document).ready(function () {
 
    })
 
-
    $("#2p-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#2p-text")[0].value;
@@ -471,7 +462,6 @@ $(document).ready(function () {
 
    })
 
-
    $("#4p-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#4p-text")[0].value;
@@ -503,7 +493,6 @@ $(document).ready(function () {
       dailyNotes();
 
    })
-
 
    $("#6p-button").on("click", function (event) {
       event.preventDefault();
