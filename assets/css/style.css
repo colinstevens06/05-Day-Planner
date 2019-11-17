@@ -22,3 +22,16 @@ html, body {
    font-size: 48px;
    color: maroon;
 }
+
+.past {
+   background-color: #ffcccc;
+}
+
+.present {
+   background-color: #ddffcc;
+
+}
+
+.future {
+   background-color: #ccf5ff;
+}

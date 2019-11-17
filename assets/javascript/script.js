@@ -1,21 +1,29 @@
 $(document).ready(function () {
-   
+
    // the first thing I need to do is dynamically create all my rows. each row needs a 1-column field to hold the time of day. it needs to increase one hour each time - i'm going to try what i did w/ the last homework where there's a variable that increases at the end of the function... but maybe I need a for loop to create everything? I'm thinking I need a for loop to create everything. I can't do that with the iterator idea because that was dependent on the user clicking the correct answer for the onclick action to take. okay, so let's create the for loop to start
-   
-   
+
+
    var mainContainerDiv = $("#main-container")
    var todaysDateDiv = $("#todays-date")
    var currentTimeDiv = $("#current-time")
 
-   todaysDateDiv.text(moment().format('MMMM Do, YYYY'))
-   currentTimeDiv
+   var currentDate = moment().format('MMMM Do, YYYY')
+   var currentTime = moment().format('LT')
+   var currentMilitaryTime = moment().format('HH')
+   currentMilitaryTime = Math.floor(currentMilitaryTime)
+   // var timeRoundDown = Math.floor(parseInt(currentTime));
 
+   // console.log(timeRoundDown)
+   
+   console.log(moment())
+
+   todaysDateDiv.text(currentDate)
+   currentTimeDiv.text(currentTime)
 
    var timesArray = ["8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm"]
    var timesArrayIDs = ["8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p"]
+   var militaryTimesArray = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
    // var dailyNotesObject = { "8a": "xxx", "9a": "", "10a": "", "11a": "", "12p": "", "1p": "", "2p": "", "3p": "", "4p": "", "5p": "", "6p": "", "7p": "" }
-
-
 
    var firstNotesObject = [];
    var secondNotesObject = [];
@@ -29,6 +37,133 @@ $(document).ready(function () {
    var tenthNotesObject = [];
    var eleventhNotesObject = [];
    var twelthNotesObject = [];
+
+   function changeBgColor() {
+      var a8row = $("#8a-row");
+      var a9row = $("#9a-row");
+      var a10row = $("#10a-row");
+      var a11row = $("#11a-row");
+      var p12row = $("#12p-row");
+      var p1row = $("#1p-row");
+      var p2row = $("#2p-row");
+      var p3row = $("#3p-row");
+      var p4row = $("#4p-row");
+      var p5row = $("#5p-row");
+      var p6row = $("#6p-row");
+      var p7row = $("#7p-row");
+      var p8row = $("#8p-row");
+
+      setInterval(function() {
+      
+      if (currentMilitaryTime === 8) {
+         a8row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 9) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 10) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 11) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 12) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner past")
+         p12row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 13) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner past")
+         p12row.attr("class", "row row-planner past")
+         p1row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 14) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner past")
+         p12row.attr("class", "row row-planner past")
+         p1row.attr("class", "row row-planner past")
+         p2row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 15) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner past")
+         p12row.attr("class", "row row-planner past")
+         p1row.attr("class", "row row-planner past")
+         p2row.attr("class", "row row-planner past")
+         p3row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 16) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner past")
+         p12row.attr("class", "row row-planner past")
+         p1row.attr("class", "row row-planner past")
+         p2row.attr("class", "row row-planner past")
+         p3row.attr("class", "row row-planner past")
+         p4row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 17) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner past")
+         p12row.attr("class", "row row-planner past")
+         p1row.attr("class", "row row-planner past")
+         p2row.attr("class", "row row-planner past")
+         p3row.attr("class", "row row-planner past")
+         p4row.attr("class", "row row-planner past")
+         p5row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime === 18) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner past")
+         p12row.attr("class", "row row-planner past")
+         p1row.attr("class", "row row-planner past")
+         p2row.attr("class", "row row-planner past")
+         p3row.attr("class", "row row-planner past")
+         p4row.attr("class", "row row-planner past")
+         p5row.attr("class", "row row-planner past")
+         p6row.attr("class", "row row-planner present")
+      } else if (currentMilitaryTime > 18) {
+         a8row.attr("class", "row row-planner past")
+         a9row.attr("class", "row row-planner past")
+         a10row.attr("class", "row row-planner past")
+         a11row.attr("class", "row row-planner past")
+         p12row.attr("class", "row row-planner past")
+         p1row.attr("class", "row row-planner past")
+         p2row.attr("class", "row row-planner past")
+         p3row.attr("class", "row row-planner past")
+         p4row.attr("class", "row row-planner past")
+         p5row.attr("class", "row row-planner past")
+         p6row.attr("class", "row row-planner past")
+         p7row.attr("class", "row row-planner past")
+      } else {
+         a8row.attr("class", "row row-planner future")
+         a9row.attr("class", "row row-planner future")
+         a10row.attr("class", "row row-planner future")
+         a11row.attr("class", "row row-planner future")
+         p12row.attr("class", "row row-planner future")
+         p1row.attr("class", "row row-planner future")
+         p2row.attr("class", "row row-planner future")
+         p3row.attr("class", "row row-planner future")
+         p4row.attr("class", "row row-planner future")
+         p5row.attr("class", "row row-planner future")
+         p6row.attr("class", "row row-planner future")
+         p7row.attr("class", "row row-planner future")
+      }
+
+   }, 5 * 60 * 1000);
+
+
+   }
 
    function populateCalendar() {
       for (var i = 0; i < timesArray.length; i++) {
@@ -78,7 +213,10 @@ $(document).ready(function () {
          saveNotesCol.append(saveButton)
 
          // adding classes to the row
-         rowDiv.attr("class", "row row-planner")
+         rowDiv.attr("class", "row row-planner future")
+         rowDiv.attr("data-military-time", militaryTimesArray[i]);
+         rowDiv.attr("id", timesArrayIDs[i] + '-row')
+
 
          // adding columns to the row
          rowDiv.append(timeCol)
@@ -186,10 +324,13 @@ $(document).ready(function () {
       localStorage.setItem("twelthNotesObject", JSON.stringify(twelthNotesObject));
 
    }
-      
+
    populateCalendar()
-   
+
    dailyNotes();
+
+   
+   changeBgColor()
 
    // I created an event listener for each individual button. I don't think this was the most efficient method, but it is the method I could use to get this work
 
@@ -208,7 +349,7 @@ $(document).ready(function () {
       dailyNotes();
 
    })
-   
+
    $("#9a-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#9a-text")[0].value;
@@ -225,7 +366,7 @@ $(document).ready(function () {
 
    })
 
-   
+
    $("#10a-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#10a-text")[0].value;
@@ -258,7 +399,7 @@ $(document).ready(function () {
 
    })
 
-   
+
    $("#12p-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#12p-text")[0].value;
@@ -291,7 +432,7 @@ $(document).ready(function () {
 
    })
 
-   
+
    $("#2p-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#2p-text")[0].value;
@@ -324,7 +465,7 @@ $(document).ready(function () {
 
    })
 
-   
+
    $("#4p-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#4p-text")[0].value;
@@ -357,7 +498,7 @@ $(document).ready(function () {
 
    })
 
-   
+
    $("#6p-button").on("click", function (event) {
       event.preventDefault();
       var notes = $("#6p-text")[0].value;
@@ -390,7 +531,7 @@ $(document).ready(function () {
 
    })
 
-   
+
    /* FROM CHAT WITH DONALD
    
    1) add event listener to $(this), connect to data points
