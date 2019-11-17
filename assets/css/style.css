@@ -35,3 +35,18 @@ html, body {
 .future {
    background-color: #ccf5ff;
 }
+
+@media screen and (max-width: 992px) {
+
+   .save-daily-notes {
+      text-align: center;
+   }
+
+   .time-of-day {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+   }
+
+
+}

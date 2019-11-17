@@ -186,11 +186,11 @@ $(document).ready(function () {
          var saveIcon = $("<i>")
 
          // giving classes and content to the time column
-         timeCol.attr("class", "col-md-1 time-of-day")
+         timeCol.attr("class", "colr-lg-1 col-md-1 time-of-day")
          timeCol.text(timesArray[i])
 
          // setting up the notes section
-         notesCol.attr("class", "col-md-10 daily-notes form-group")
+         notesCol.attr("class", "col-lg-10 col-md-9 daily-notes form-group")
 
          // setting up text area with bootsrap form class, data-notes so that this will connect to the save button and the local storage, and an id because I know each one will need an individual id at some point
          notesTextArea.attr("class", "form-control")
@@ -202,7 +202,7 @@ $(document).ready(function () {
          notesCol.append(form)
 
          // save column
-         saveNotesCol.attr("class", "col-md-1 save-daily-notes")
+         saveNotesCol.attr("class", "col-lg-1 col-md-2 save-daily-notes")
          // saveNotesCol.attr("id", "save-daily-notes")
 
          //adding save icon to button
