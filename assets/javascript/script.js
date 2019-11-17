@@ -316,7 +316,6 @@ $(document).ready(function () {
 
    }
 
-
    function storedDailyNotes() {
       // stringify and set 'each object' key in localStare to array
       localStorage.setItem("firstNotesObject", JSON.stringify(firstNotesObject));
@@ -537,30 +536,5 @@ $(document).ready(function () {
       dailyNotes();
 
    })
-
-
-   /* FROM CHAT WITH DONALD
-   
-   1) add event listener to $(this), connect to data points
-   2) at the top, you can create variables that hold the data for each object item in the local storage and populates them on load
-   3) use a for loop to get the colors and change them. could use a data-hour "9", etc., to populate the number, then use comparisons to a local time number (math.floor or parseInt to take the time and make it a number for comparisons)
-   4) get rid of those crazy IDs i created
-   5) make it work first then worry about simplifying it
-   6) gotta find
-   
-   // it's a form
-   // when someone clicks the submit button on the form, i want that value to go to variable
-   // i want the value of that variable added to the object
-   // it needs to be added to the object at the spot of its ID...
-   // and that value somehow needs to stay in the value when i load the page
-   
-   // so when i load the page, the value still needs to be there
-   // so that means if a variable
-   
-   
-   
-   
-   
-   */
 
 })
