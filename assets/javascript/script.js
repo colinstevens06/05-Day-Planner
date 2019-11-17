@@ -165,6 +165,130 @@ $(document).ready(function () {
 
    }
 
+   function changeBgColorOnLoad() {
+
+      // i made all these variable here because I can't make them globally at the top because they hadn't been dynamically generated yet
+      var a8row = $("#8a-row");
+      var a9row = $("#9a-row");
+      var a10row = $("#10a-row");
+      var a11row = $("#11a-row");
+      var p12row = $("#12p-row");
+      var p1row = $("#1p-row");
+      var p2row = $("#2p-row");
+      var p3row = $("#3p-row");
+      var p4row = $("#4p-row");
+      var p5row = $("#5p-row");
+      var p6row = $("#6p-row");
+      var p7row = $("#7p-row");
+      var p8row = $("#8p-row");
+
+         // here are a ton of if-else statements
+         if (currentMilitaryTime === 8) {
+            a8row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 9) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 10) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 11) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 12) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner past")
+            p12row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 13) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner past")
+            p12row.attr("class", "row row-planner past")
+            p1row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 14) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner past")
+            p12row.attr("class", "row row-planner past")
+            p1row.attr("class", "row row-planner past")
+            p2row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 15) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner past")
+            p12row.attr("class", "row row-planner past")
+            p1row.attr("class", "row row-planner past")
+            p2row.attr("class", "row row-planner past")
+            p3row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 16) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner past")
+            p12row.attr("class", "row row-planner past")
+            p1row.attr("class", "row row-planner past")
+            p2row.attr("class", "row row-planner past")
+            p3row.attr("class", "row row-planner past")
+            p4row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 17) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner past")
+            p12row.attr("class", "row row-planner past")
+            p1row.attr("class", "row row-planner past")
+            p2row.attr("class", "row row-planner past")
+            p3row.attr("class", "row row-planner past")
+            p4row.attr("class", "row row-planner past")
+            p5row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime === 18) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner past")
+            p12row.attr("class", "row row-planner past")
+            p1row.attr("class", "row row-planner past")
+            p2row.attr("class", "row row-planner past")
+            p3row.attr("class", "row row-planner past")
+            p4row.attr("class", "row row-planner past")
+            p5row.attr("class", "row row-planner past")
+            p6row.attr("class", "row row-planner present")
+         } else if (currentMilitaryTime > 18) {
+            a8row.attr("class", "row row-planner past")
+            a9row.attr("class", "row row-planner past")
+            a10row.attr("class", "row row-planner past")
+            a11row.attr("class", "row row-planner past")
+            p12row.attr("class", "row row-planner past")
+            p1row.attr("class", "row row-planner past")
+            p2row.attr("class", "row row-planner past")
+            p3row.attr("class", "row row-planner past")
+            p4row.attr("class", "row row-planner past")
+            p5row.attr("class", "row row-planner past")
+            p6row.attr("class", "row row-planner past")
+            p7row.attr("class", "row row-planner past")
+         } else {
+            a8row.attr("class", "row row-planner future")
+            a9row.attr("class", "row row-planner future")
+            a10row.attr("class", "row row-planner future")
+            a11row.attr("class", "row row-planner future")
+            p12row.attr("class", "row row-planner future")
+            p1row.attr("class", "row row-planner future")
+            p2row.attr("class", "row row-planner future")
+            p3row.attr("class", "row row-planner future")
+            p4row.attr("class", "row row-planner future")
+            p5row.attr("class", "row row-planner future")
+            p6row.attr("class", "row row-planner future")
+            p7row.attr("class", "row row-planner future")
+         }
+   }
+
    // this function populates the calendar w rows columns and the other elements on the page
    function populateCalendar() {
       for (var i = 0; i < timesArray.length; i++) {
@@ -330,6 +454,7 @@ $(document).ready(function () {
    // running my functions here
    populateCalendar()
    dailyNotes();
+   changeBgColorOnLoad();
    changeBgColor()
 
    // I created an event listener for each individual button. I don't think this was the most efficient method, but it is the method I could use to get this work
